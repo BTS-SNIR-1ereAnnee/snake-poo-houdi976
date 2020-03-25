@@ -3,14 +3,32 @@
 #include "Board.h"
 
 class snake
-{ 
+{
 public:
-	void ajouterPoint(Point p);
-	void afficher();
+
+    /** Default constructor */
+    snake();
+    /** Constructeur
+     * \param x position sur l'axe des x
+     * \param y position sur l'axe des y
+     */
+    snake (int x, int y);
+
+    /** déplace le snake
+     * \param direction la direction du déplacement
+     */
+    void move(int direction); // déplacement du serpent
+
+
+    /** affiche le serpent
+    */
+    void affichSerpent();
+    bool checkColisionWithBoard();
+
 
 private:
-	Point serpent[20];
-	int m_index;
+    /** tableau de point, corps du serpent*/
+    Point serpent[50];
+    /** longueur du serpent */
+    int longeur = 3;
 };
-
-#endif 
