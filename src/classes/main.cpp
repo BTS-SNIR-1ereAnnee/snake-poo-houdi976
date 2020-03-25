@@ -17,12 +17,12 @@ int main()
     // initialisation des pointeurs
     fenetre = Board::getInstance ();
 
-    Point p(10,4);
-    p.drawPoint();
-    Point p2(10,5);
-    p2.drawPoint();
+    Point p(10,4); // placement du point p
+    p.drawPoint(); // affichage du point p
+    Point p2(10,5);// placement du point p2
+    p2.drawPoint();// affichage du point p2
     //cout << "press any key to quit" << endl;
     getchar();
-    fenetre->kill();
+    fenetre->kill();// permet de fermer proprement
     return 0;
 }
