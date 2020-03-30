@@ -31,5 +31,5 @@ private:
     /** tableau de point, corps du serpent*/
     Point serpent[50];
     /** longueur du serpent */
-    int longueur = 4;
+    int longueur = 5;
 };

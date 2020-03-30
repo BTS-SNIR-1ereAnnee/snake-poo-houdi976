@@ -62,7 +62,7 @@ int main()
 
 	
 	
-	while (!(serpent.checkColisionWithBoard()))
+	while (!(serpent.checkColisionWithBoard() || serpent.checkColisionWithSnake()))
 	{
 
 		if(kbhit()) {

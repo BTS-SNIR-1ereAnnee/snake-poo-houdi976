@@ -80,13 +80,15 @@ void snake::move(int direction)
 	return FALSE;
 	}
 
+	
+
 
 
 	bool snake::checkColisionWithSnake(){
 
     		 for(int i=1;i<longueur;i++)
     {
-        if(serpent[0].getX()==serpent[i].getX() || serpent[0].getY()==serpent[i].getY()){
+        if(serpent[0].getX()==serpent[i].getX() && serpent[0].getY()==serpent[i].getY()){
             return TRUE;
         }
     }
