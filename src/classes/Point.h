@@ -61,6 +61,12 @@ public:
     *   Affiche les coordonnées
     */
     void debug();
+    
+    char getChar();
+
+    void setChar(char caractere);
+
+
 protected:
 
 private:

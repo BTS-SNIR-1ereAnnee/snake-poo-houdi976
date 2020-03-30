@@ -84,7 +84,35 @@ void Point::debug()
 {
     cout << "(" << this->m_x << "," << this->m_y << ")";
 }
+
+void Point::setChar(char caractere){
+    m_caractere = caractere;
+}
+
+char Point::getChar(){
+    return m_caractere;
+}
+    
 Point::~Point()
 {
     //dtor
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
