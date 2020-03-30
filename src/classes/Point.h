@@ -9,7 +9,7 @@ public:
     /** Default constructor */
     Point();
     /** Constructeur */
-    Point(int x, int y);
+    Point(int x, int y,char caractere);
 
     /** Default destructor */
     virtual ~Point();
@@ -66,6 +66,7 @@ protected:
 private:
     int m_x; //!< Member variable "m_x"
     int m_y; //!< Member variable "m_y"
+    char m_caractere; 
 };
 
 #endif // POINT_H

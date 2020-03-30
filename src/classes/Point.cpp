@@ -8,17 +8,21 @@ using namespace std;
 Point::Point()
 {
     m_x = m_y = 10;
+    m_caractere ='@';
 }
-Point::Point(int x, int y)
+Point::Point(int x, int y,char caractere)
 {
     this->m_x = x;
     this->m_y = y;
+    m_caractere =caractere;
+
 }
 
 void Point::setPoint(int x, int y)
 {
     this->m_x = x;
     this->m_y = y;
+    
 }
 
 void Point::moveDown()
