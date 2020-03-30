@@ -2,13 +2,14 @@
 #include "snake.h"
 #include "Board.h"
 #include <iostream>
+#include <unistd.h>
 
 
 using namespace std ;
 
 snake::snake()
 {
-    for(int x = 0; x < longeur; x++)
+    for(int x = 0; x < longueur; x++)
     {
         serpent[x].setPoint(0,x);
     }
@@ -17,7 +18,7 @@ snake::snake()
 
 snake::snake(int x,int y)
 {
-    for(int d = 0; d < longeur; d++)
+    for(int d = 0; d < longueur; d++)
     {
         serpent[d].setPoint(x,d+y);
     }
@@ -27,7 +28,7 @@ snake::snake(int x,int y)
 void snake::affichSerpent()
 {
     /**Parcours du tableau*/
-    for(int d = 0; d < longeur; d++)
+    for(int d = 0; d < longueur; d++)
     {
         serpent[d].drawPoint(); /** utilisation de la méthode drawPoint*/
     }
@@ -35,7 +36,7 @@ void snake::affichSerpent()
 
 void snake::move(int direction)
 {
-    for(int d = longeur; d > 0 ; d--)
+    for(int d = longueur; d > 0 ; d--)
     {
         serpent[d].erasePoint();
         serpent[d] = serpent[d-1];
@@ -66,32 +67,28 @@ void snake::move(int direction)
  	bool snake::checkColisionWithBoard()
 	{
 		
-		
-	
-		if (serpent[0].getX()==0)
-		{
-			return TRUE;
-
-		}
-		if (serpent[0].getY()==0)
-		{
-			return TRUE;
-
-		}
-
 		Board *b;
-		b=Board::getInstance();
+		b = Board::getInstance();
+	
 		
-		if (serpent[0].getX()==b->getSizeX())
-		{
-			return TRUE;
-
-		}
-		if (serpent[0].getY()==b->getSizeY())
+		if (serpent[0].getX()==0 || serpent[0].getY()==0 || serpent[0].getX()==b->getSizeX()-1 || serpent[0].getY()==b->getSizeY()-1)
 		{
 			return TRUE;
 
 		}
 		
 	return FALSE;
+	}
+
+
+
+	bool snake::checkColisionWithSnake(){
+
+    		 for(int i=1;i<longueur;i++)
+    {
+        if(serpent[0].getX()==serpent[i].getX() || serpent[0].getY()==serpent[i].getY()){
+            return TRUE;
+        }
+    }
+    		return FALSE;
 	}

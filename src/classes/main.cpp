@@ -44,9 +44,9 @@ int kbhit(void)    // Cette fonction retourne si une touche est appuyé par l'ut
 
 int main()
 {
-	int derniereDir=TOUCHE_KEY_DOWN;
+	int derniereDir=TOUCHE_KEY_UP;
 
-    // pointeurs sur l'unique instance de la classe UniqueObject
+    // pointeurs sur l'unique instance de la classe Unique Object
 	Board *fenetre;
     // initialisation des pointeurs
 	fenetre = Board::getInstance ();
@@ -57,12 +57,12 @@ int main()
 
 
 	keypad (stdscr,true);
-	noecho();
+	curs_set(0);
 	
 
-	bool collision = FALSE;
-
-	while (!collision)
+	
+	
+	while (!(serpent.checkColisionWithBoard()))
 	{
 
 		if(kbhit()) {
@@ -85,18 +85,18 @@ int main()
 				break;
 			}
 
+			serpent.move(derniereDir);
 
+		}else{
+			serpent.move(derniereDir);
 
 		}
 
-		serpent.move (derniereDir);
-		collision = serpent.checkColisionWithBoard();
-
 		serpent.affichSerpent();
-		usleep (150000);
-
+		usleep (100000);
 	}
-    //getchar();
+	
+    	clear();
 	fenetre->kill();
 	return 0;
 };

@@ -24,11 +24,12 @@ public:
     */
     void affichSerpent();
     bool checkColisionWithBoard();
+    bool checkColisionWithSnake();
 
 
 private:
     /** tableau de point, corps du serpent*/
     Point serpent[50];
     /** longueur du serpent */
-    int longeur = 3;
+    int longueur = 4;
 };
